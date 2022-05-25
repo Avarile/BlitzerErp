@@ -7,8 +7,6 @@ import { BellOutlined, CodeFilled } from "@ant-design/icons";
 export default function Header({ uiController, setUiController, logout, toggle }: any) {
   const { Header } = Layout;
 
-
-
   return (
     <Header className="site-layout-background">
       <Space>
@@ -18,6 +16,7 @@ export default function Header({ uiController, setUiController, logout, toggle }
         })}
         <div style={{ marginLeft: "65rem" }}>
           <Space style={{ marginRight: "2rem" }} size="large">
+            <p>Version: 0.01</p>
             <BellOutlined />
             <CodeFilled />
             <SearchOutlined />

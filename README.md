@@ -9,8 +9,8 @@
 
 ##### As a self-taught programmer, I also want use this project as my profolio site --- this is fully original, designed from real-life commercial needs, solving real-life problems. Not something COPIED from github and changed name.
 
+#### update log:
 
+1. 26/May/2022:
 
-
-
-
+- feat: implemented the partially of the static dashboard, made it functional.
