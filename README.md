@@ -1,6 +1,6 @@
 # Blitzer ERP
 
-##### demo page: https://avarile.github.io/blitzer ver. 0.1
+##### demo page: https://avarile.github.io/blitzererp ver. 0.1
 
 - _username_: Avarile
 - _password_: 000000
