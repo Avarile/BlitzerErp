@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router basename="/dashboard">
+      <Router basename="/blitzererp">
         <App />
       </Router>
     </Provider>
