@@ -3,7 +3,7 @@ const ENVCONFIG = {
     dbUri: "http://localhost:3001",
   },
   deployment: {
-    dbUri: "http://avarile.com:2095",
+    dbUri: "http://137.147.94.10:3001",
   },
 };
 
