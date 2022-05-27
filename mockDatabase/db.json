@@ -30,7 +30,7 @@
       "installationPrice": 160,
       "desc": "TIG welding for all boxes\n2 Year 40,000 Structure Warranty*",
       "spec": "Toolbox size: 1780mm x 1400mm x 850mm \nDog Box Section: 700mm W x 890mm D\nHeavy Duty 2.5mm Aluminium Flat Plate \nAluminium Tubes Frame, can take up to 300kg top load when stationary\n4 x Stainless Steel Whale Tail Locks Secured; keyed alike\nFull Length Concealed Stainless Steel Piano Type Hinge\n2 x Gas Struts for each Door\n2.5mm Reinforced Tubes Roof Bracing Structure\n3mm refinforced spare wheel carrier support\nFloor Included\nWeather Proof Rubber Seal\nFully Tig Welded Seams\nShape Perfectly matches tray headboard / Cab Profile",
-      "currentInStock": 49,
+      "currentInStock": 48,
       "updateLog": "TIG welding for all boxes\n2 Year 40,000 Structure Warranty*\n\n5/May/2022:\nArrival 50 units",
       "id": 1,
       "pcPrice": 500,
@@ -119,10 +119,12 @@
       "installationPrice": 560,
       "desc": "asdfasdfasdf",
       "spec": "asdfasdfasdf",
-      "currentInStock": 3,
+      "currentInStock": 2,
       "updateLog": "15/May/2022:\nArrived 3",
       "lastUpdate": "06/05/2022",
-      "id": 6
+      "id": 6,
+      "pcPrice": 400,
+      "installPrice": 560
     },
     {
       "subtype": "no subtype",
@@ -137,10 +139,12 @@
       "installationPrice": 400,
       "desc": "Heavy duty Bumper,",
       "spec": "2100mm Wide, 80mm long Heavy duty bumper specially designed for ford 2022",
-      "currentInStock": 10,
+      "currentInStock": 9,
       "updateLog": "25/May/2022:\nordered new batch of 10.",
       "lastUpdate": "2022-05-25",
-      "id": 7
+      "id": 7,
+      "pcPrice": 0,
+      "installPrice": 400
     }
   ],
   "clients": [
@@ -217,7 +221,7 @@
       "clientAddress": "15 seabird dr, Point Cook",
       "clientPostcode": "3040",
       "clientMobile": "0481877127",
-      "checked": true,
+      "checked": false,
       "shippingAddress": "15",
       "shippingPostcode": "3030",
       "shippingShippingFee": "15",
@@ -252,14 +256,20 @@
       "createdBy": "Avarile",
       "updatedAt": "2022-05-25",
       "updatedBy": "name",
-      "orderStatus": "partiallyPayed",
+      "orderStatus": "fullyPayed",
       "fabricationStatus": "ready",
       "logisticStatus": "delivering",
       "logisticProvider": "Australian Post",
       "pickupAt": "2022-05-25",
-      "orderPayed": 1500,
-      "paymentDetail": [],
-      "balanceDue": 5335,
+      "orderPayed": 6835,
+      "paymentDetail": [
+        {
+          "method": "cash",
+          "amount": 5335,
+          "payedAt": "2022-05-27"
+        }
+      ],
+      "balanceDue": 0,
       "id": 1,
       "trackingNumber": "123123123x"
     },
@@ -271,7 +281,7 @@
       "clientAddress": "Adelaide",
       "clientPostcode": "4001",
       "clientMobile": "0412345678",
-      "checked": false,
+      "checked": true,
       "shippingAddress": "Brisbane",
       "shippingPostcode": "5050",
       "shippingShippingFee": "50",
@@ -296,14 +306,20 @@
       "createdBy": "Avarile",
       "updatedAt": "2022-05-25",
       "updatedBy": "name",
-      "orderStatus": "partiallyPayed",
-      "fabricationStatus": "pending",
+      "orderStatus": "fullyPayed",
+      "fabricationStatus": "powderCoating",
       "logisticStatus": "waitingForCarrier",
       "logisticProvider": null,
       "pickupAt": null,
-      "orderPayed": 500,
-      "paymentDetail": [],
-      "balanceDue": 2050,
+      "orderPayed": 2550,
+      "paymentDetail": [
+        {
+          "method": "cash",
+          "amount": 2050,
+          "payedAt": "2022-05-27"
+        }
+      ],
+      "balanceDue": 0,
       "id": 2
     },
     {
@@ -407,9 +423,16 @@
       "logisticStatus": "waitingForCarrier",
       "logisticProvider": null,
       "pickupAt": null,
-      "orderPayed": 2000,
-      "paymentDetail": [],
-      "balanceDue": 6060,
+      "orderPayed": 5100,
+      "paymentDetail": [
+        {
+          "method": "cash",
+          "amount": 3100,
+          "referenceCodes": "1234567890x",
+          "payedAt": "2022-05-27"
+        }
+      ],
+      "balanceDue": 2960,
       "id": 4
     },
     {
@@ -420,7 +443,7 @@
       "clientAddress": "15 seabird dr, Point Cook",
       "clientPostcode": "3040",
       "clientMobile": "0481877127",
-      "checked": false,
+      "checked": true,
       "shippingAddress": "Melbourne",
       "shippingPostcode": "3030",
       "shippingShippingFee": "15",

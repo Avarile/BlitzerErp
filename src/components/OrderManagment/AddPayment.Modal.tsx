@@ -9,7 +9,12 @@ const layout = {
   wrapperCol: { span: 16 },
 };
 
-const AddPaymentModal = ({ showPaymentModal, setShowPaymentModal, orderDetail, getOrderByIdandSetdata }: any) => {
+const AddPaymentModal = ({
+  showPaymentModal,
+  setShowPaymentModal,
+  orderDetail,
+  getOrderByIdandSetdata,
+}: any) => {
   const order = { ...orderDetail };
   // remove the flatened key/value in OrderListModule
   // delete order.key;
@@ -35,10 +40,17 @@ const AddPaymentModal = ({ showPaymentModal, setShowPaymentModal, orderDetail, g
       //process data before submit: calc the numbers
       const payload = {
         ...order,
-        paymentDetail: [...order.paymentDetail, { ...currentFormValue, payedAt: timeStamp() }],
+        paymentDetail: [
+          ...order.paymentDetail,
+          { ...currentFormValue, payedAt: timeStamp() },
+        ],
         orderPayed: currentFormValue.amount + order.orderPayed,
-        balanceDue: order.price.totalAmount - order.orderPayed - currentFormValue.amount,
-        orderStatus: order.orderPayed + currentFormValue.amount >= order.price.totalAmount ? "fullyPayed" : "partiallyPayed",
+        balanceDue:
+          order.pricetotalAmount - order.orderPayed - currentFormValue.amount,
+        orderStatus:
+          order.orderPayed + currentFormValue.amount >= order.pricetotalAmount
+            ? "fullyPayed"
+            : "partiallyPayed",
       };
       console.log(payload);
       // if the amount is fully payed, then need to deduct the product from the stock
@@ -85,10 +97,20 @@ const AddPaymentModal = ({ showPaymentModal, setShowPaymentModal, orderDetail, g
         keyboard={false}
         afterClose={() => {
           // window.location.reload();
-        }}>
+        }}
+      >
         <p>{modalText}</p>{" "}
-        <Form {...layout} name="addPaymentForm" form={formRef} validateMessages={validateMessages}>
-          <Form.Item name={["payment", "method"]} label="Method" rules={[{ required: true }]}>
+        <Form
+          {...layout}
+          name="addPaymentForm"
+          form={formRef}
+          validateMessages={validateMessages}
+        >
+          <Form.Item
+            name={["payment", "method"]}
+            label="Method"
+            rules={[{ required: true }]}
+          >
             <Select placeholder="Please select payment method!">
               <Select.Option value="cash">Cash</Select.Option>
               <Select.Option value="debitCard">Debit Card</Select.Option>
@@ -97,10 +119,17 @@ const AddPaymentModal = ({ showPaymentModal, setShowPaymentModal, orderDetail, g
               <Select.Option value="3rdParty">3rd-Party Payment</Select.Option>
             </Select>
           </Form.Item>
-          <Form.Item name={["payment", "amount"]} label="Amount" rules={[{ type: "number", required: true }]}>
+          <Form.Item
+            name={["payment", "amount"]}
+            label="Amount"
+            rules={[{ type: "number", required: true }]}
+          >
             <InputNumber />
           </Form.Item>
-          <Form.Item name={["payment", "referenceCodes"]} label="Reference Codes">
+          <Form.Item
+            name={["payment", "referenceCodes"]}
+            label="Reference Codes"
+          >
             <Input />
           </Form.Item>
           <Form.Item name={["payment", "description"]} label="Description">

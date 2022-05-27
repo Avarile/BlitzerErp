@@ -79,13 +79,13 @@
     "workbox-webpack-plugin": "^6.4.1",
     "yup": "^0.32.11"
   },
-  "homepage": "https://Avarile.github.io/BlitzerErp",
   "scripts": {
-    "start": "concurrently \" node scripts/start.js\" \"json-server --host localhost ./mockDatabase/db.json --port 3001 \"",
+    "start": "concurrently \"PORT=2095 node scripts/start.js\" \"json-server --host 192.168.0.121 ./mockDatabase/db.json --port 2096 \"",
     "build": "node scripts/build.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "serve": "concurrently \"serve -s build -l 2095 \" \"json-server --host 192.168.0.121 ./mockDatabase/db.json --port 2096 \""
   },
   "eslintConfig": {
     "extends": [
