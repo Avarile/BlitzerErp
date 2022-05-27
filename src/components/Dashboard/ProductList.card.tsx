@@ -23,7 +23,7 @@ const ProductListCard = () => {
         {data.map((item) => {
           return (
             <>
-              <SingleItem>
+              <SingleItem key={item.name}>
                 <Space direction="vertical">
                   <h4>{item.name}</h4>
                   <p>
