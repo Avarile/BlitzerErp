@@ -17,8 +17,8 @@ import { productTypes } from "@SRC/utils/productTypes";
  */
 const menu = (
   <Menu>
-    <Menu.Item>Action 1</Menu.Item>
-    <Menu.Item>Action 2</Menu.Item>
+    <Menu.Item key="1">Action 1</Menu.Item>
+    <Menu.Item key="2">Action 2</Menu.Item>
   </Menu>
 );
 
@@ -93,6 +93,7 @@ function WareHousingMel() {
     return (
       <Table
         // size="small"
+        rowKey={"sku"}
         onRow={(record) => {
           return {
             onClick: (event) => {}, // 点击行
@@ -155,13 +156,10 @@ function WareHousingMel() {
   }, []);
   // end of DATA init
 
-  const data = [
-    
-
-  ];
+  const data = [];
   for (let i = 0; i < productTypes.length; ++i) {
     data.push({
-      key: i,
+      key: productTypes[i].id,
       type: productTypes[i].name,
       items: CaculateTypeItems(productTypes[i].name, products),
     });
@@ -178,6 +176,7 @@ function WareHousingMel() {
           // tableRef={(tableInstance: any) => {
           //   tableRef.current = tableInstance;
           // }}
+          key="type"
           className="components-table-demo-nested"
           columns={columns} // this is pretty straight forward this is cloumns
           expandable={{

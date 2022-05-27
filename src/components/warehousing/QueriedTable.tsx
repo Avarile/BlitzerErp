@@ -1,10 +1,10 @@
-import React from "react"
-import "antd/dist/antd.css"
-import { Table, Badge, Menu, Dropdown, Space } from "antd"
-import { DownOutlined } from "@ant-design/icons"
-import { stockIndicator, CaculateTypeItems } from "@SRC/utils/utilFuncs"
-import { selectProducts } from "@SRC/data/dataSlices/products.slice"
-import { useSelector } from "react-redux"
+import React from "react";
+import "antd/dist/antd.css";
+import { Table, Badge, Menu, Dropdown, Space } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+import { stockIndicator, CaculateTypeItems } from "@SRC/utils/utilFuncs";
+import { selectProducts } from "@SRC/data/dataSlices/products.slice";
+import { useSelector } from "react-redux";
 
 /**
  *the menu at the end of the action as well as anywhere else.
@@ -15,13 +15,13 @@ const menu = (
     <Menu.Item>Action 1</Menu.Item>
     <Menu.Item>Action 2</Menu.Item>
   </Menu>
-)
-1
+);
+1;
 const QueriedTable = () => {
   // Data Source:
-  const values = useSelector(selectProducts)
+  const values = useSelector(selectProducts);
   // UI controller
-  const [hoverEvent, setHoverEvent] = React.useState(false)
+  const [hoverEvent, setHoverEvent] = React.useState(false);
 
   const columns = [
     // inner row columns
@@ -41,7 +41,7 @@ const QueriedTable = () => {
             <Badge status={stockIndicator(a)} />
             {a}
           </span>
-        )
+        );
       },
     },
     { title: "PCPrice", dataIndex: "pcPrice", key: "pcPrice" },
@@ -60,12 +60,12 @@ const QueriedTable = () => {
         </Space>
       ),
     },
-  ]
+  ];
 
   // process the values variable make it easier to use
-  let data: any[] = []
+  let data: any[] = [];
   if (values.products.products[0]) {
-    let temp = values.products.products[0]
+    let temp = values.products.products[0];
     data.push({
       key: temp?.id,
       sku: temp?.sku,
@@ -76,15 +76,16 @@ const QueriedTable = () => {
       installPrice: temp?.installationprice,
       inStock: temp?.currentInStock,
       lastUpdate: temp?.lastUpdate,
-    })
+    });
   } else {
-    return null
+    return null;
   }
 
   return (
     <>
       <h3>Queried Display</h3>
       <Table
+        key="sku"
         loading={values.isloading.isloading}
         style={{ marginBottom: "4rem" }}
         onRow={(record) => {
@@ -93,24 +94,24 @@ const QueriedTable = () => {
             onDoubleClick: (event) => {},
             onContextMenu: (event) => {},
             onMouseEnter: (event) => {
-              setHoverEvent(true)
+              setHoverEvent(true);
             }, // 鼠标移入行
             onMouseLeave: (event) => {
-              setHoverEvent(false)
+              setHoverEvent(false);
             },
-          }
+          };
         }}
         columns={columns}
         dataSource={data}
         pagination={false}
         rowClassName={(record, index) => {
           if (index / 2 === 0) {
-            return "oddRow"
-          } else return "evenRow"
+            return "oddRow";
+          } else return "evenRow";
         }}
       />
     </>
-  )
-}
+  );
+};
 
-export default QueriedTable
+export default QueriedTable;

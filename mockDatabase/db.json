@@ -367,7 +367,7 @@
       "clientAddress": "PointCook",
       "clientPostcode": "3030",
       "clientMobile": "0412345678",
-      "checked": false,
+      "checked": true,
       "shippingAddress": "Perth",
       "shippingPostcode": "6000",
       "shippingShippingFee": "540",
@@ -411,6 +411,49 @@
       "paymentDetail": [],
       "balanceDue": 6060,
       "id": 4
+    },
+    {
+      "clientId": 1,
+      "clientName": "Avarile",
+      "clientEmail": "Avarile@gmail.com",
+      "clientVip": "Avarile",
+      "clientAddress": "15 seabird dr, Point Cook",
+      "clientPostcode": "3040",
+      "clientMobile": "0481877127",
+      "checked": false,
+      "shippingAddress": "Melbourne",
+      "shippingPostcode": "3030",
+      "shippingShippingFee": "15",
+      "priceItemPrice": 2750,
+      "pricepcPrice": 500,
+      "priceinstallPrice": 160,
+      "pricetotalAmount": 3425,
+      "pricedepositPayed": 1000,
+      "products": [
+        {
+          "sku": "TB046F-17148",
+          "name": "1400mm Flat Plate Aluminium Canopy With Dog Box Section",
+          "id": 1,
+          "size": "1400L x 1780W x 850H",
+          "price": 2750,
+          "pcPrice": 500,
+          "installPrice": 160,
+          "currentInStock": 49
+        }
+      ],
+      "createdAt": "2022-05-27",
+      "createdBy": "Avarile",
+      "updatedAt": "2022-05-27",
+      "updatedBy": "name",
+      "orderStatus": "partiallyPayed",
+      "fabricationStatus": "pending",
+      "logisticStatus": "waitingForCarrier",
+      "logisticProvider": null,
+      "pickupAt": null,
+      "orderPayed": 1000,
+      "paymentDetail": [],
+      "balanceDue": 2425,
+      "id": 5
     }
   ]
 }

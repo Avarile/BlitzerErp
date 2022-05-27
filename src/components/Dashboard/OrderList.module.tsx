@@ -64,7 +64,7 @@ const DashboardOrderList = () => {
     style: { flexGrow: 1, marginBottom: "1rem" },
     Content: (
       <>
-        <Table columns={columns} dataSource={data} onChange={onChange} pagination={false} />
+        <Table columns={columns} dataSource={data} onChange={onChange} rowKey='id' pagination={false} />
       </>
     ),
   });

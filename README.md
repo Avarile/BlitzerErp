@@ -14,6 +14,3 @@
 1. 26/May/2022:
 
 - feat: implemented the partially of the static dashboard, made it functional.
-
-
-- backup: "homepage": "https://Avarile.github.io/BlitzerErp",

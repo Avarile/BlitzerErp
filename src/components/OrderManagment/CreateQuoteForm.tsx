@@ -2,13 +2,14 @@ import React, { useRef, useState } from "react";
 import "antd/dist/antd.css";
 import { Form, Input, Button, Space, FormInstance, Select, InputNumber, Badge } from "antd";
 import { MinusCircleOutlined, PlusOutlined, CarryOutFilled } from "@ant-design/icons";
-import { getClientsByParams, manipulateUserInfo, searchProductBySku, generateOrder } from "@DATA/api.service";
+import { getClientsByParams, manipulateUserInfo, searchProductBySku, generateOrder, getOrderByParams } from "@DATA/api.service";
 import { setSelectedItems, setPrice, setOrderCustomer, setOrderShippingInfo, selectOrder } from "@DATA/dataSlices/order.slice";
 import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
 import { isShortage, timeStamp } from "@SRC/utils/utilFuncs";
 import Notification from "@SRC/utils/commomComponents/Notification";
 import Storage from "@SRC/data/session.controller";
+import orderlistSlice, { setOrderList } from "@SRC/data/dataSlices/orderlist.slice";
 
 const { Search, TextArea } = Input;
 
@@ -86,9 +87,7 @@ const CreateNewQuotation = () => {
           balanceDue: Number(values.price.totalAmount) - Number(values.price.depositPayed),
         }; // TODO: why generate null : solved, I quoted a undefined value...
 
-        console.log(payload);
-
-        generateOrder(payload).then(() => {
+        generateOrder(payload).then((response: any) => {
           setLoadingStatus({
             ...loadingStatus,
             orderCreation: false,
@@ -172,7 +171,7 @@ const CreateNewQuotation = () => {
             allowClear
             loading={loadingStatus.userInfo}
             placeholder="Please Input the client Email or Mobile Number"
-            onChange={() => {
+            onSearch={() => {
               getClientsByParams(generateClientQueryString(), loadingStatus, setLoadingStatus, formInstance, setUIController, uiController);
             }}
           />

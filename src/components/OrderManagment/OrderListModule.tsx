@@ -114,6 +114,7 @@ const OrderListModule = () => {
         }}
       /> */}
       <Table
+        rowKey={"id"}
         loading={loadingStatus}
         rowClassName={(record, index) => {
           if (index % 2 === 0) {
