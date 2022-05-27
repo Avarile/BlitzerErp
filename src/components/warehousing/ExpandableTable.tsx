@@ -1,8 +1,8 @@
-import React from "react"
-import "antd/dist/antd.css"
-import { Table, Badge, Menu, Dropdown, Space } from "antd"
-import { DownOutlined } from "@ant-design/icons"
-import { stockIndicator } from "@SRC/utils/utilFuncs"
+import React from "react";
+import "antd/dist/antd.css";
+import { Table, Badge, Menu, Dropdown, Space } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+import { stockIndicator } from "@SRC/utils/utilFuncs";
 
 /**
  *the menu at the end of the action as well as anywhere else.
@@ -10,10 +10,10 @@ import { stockIndicator } from "@SRC/utils/utilFuncs"
  */
 const menu = (
   <Menu>
-    <Menu.Item>Action 1</Menu.Item>
-    <Menu.Item>Action 2</Menu.Item>
+    <Menu.Item key="1">Action 1</Menu.Item>
+    <Menu.Item key="2">Action 2</Menu.Item>
   </Menu>
-)
+);
 
 const ExpandableTable = () => {
   // create Ref
@@ -29,14 +29,14 @@ const ExpandableTable = () => {
       dataIndex: "inStock",
       render: (a: any, b: any, c: any) => {
         // a: current row value, b: current column value(a obj), c: row index
-        debugger
+        debugger;
 
         return (
           <span>
             <Badge status={stockIndicator(a)} />
             {a}
           </span>
-        )
+        );
       },
     },
     { title: "last Update", dataIndex: "lastUpdate", key: "lastUpdate" },
@@ -56,9 +56,9 @@ const ExpandableTable = () => {
         </Space>
       ),
     },
-  ]
+  ];
 
-  const data: any[] = []
+  const data: any[] = [];
   for (let i = 0; i < 6; ++i) {
     data.push({
       key: i,
@@ -67,9 +67,9 @@ const ExpandableTable = () => {
       price: 2300,
       inStock: 5,
       lastUpdate: Date.now() / 1000,
-    })
+    });
   }
-  return <Table columns={columns} dataSource={data} pagination={false} />
-}
+  return <Table columns={columns} dataSource={data} pagination={false} key="sku" />;
+};
 
-export default ExpandableTable
+export default ExpandableTable;

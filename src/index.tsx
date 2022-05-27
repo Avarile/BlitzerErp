@@ -8,15 +8,13 @@ import { store } from "./data/dataStore/store.redux";
 import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      {/* <Router basename="/blitzererp"> */}
-
-      <Router>
-        <App />
-      </Router>
-    </Provider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Provider store={store}>
+    <Router basename="/blitzererp">
+      <App />
+    </Router>
+  </Provider>,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
 

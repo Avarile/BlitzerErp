@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { orderStatusIndicator, fabricationStatusIndicator, logisticStatusIndicator } from "@SRC/utils/utilFuncs";
-import { Table, Input, Badge, Space } from "antd";
-import DashboardCard from "@SRC/utils/commomComponents/Dashboard.card";
-import { title } from "process";
-import AnimatedChartsModule, { Temp } from "@SRC/components/Dashboard/AnimatedCharts.module";
+import AnimatedChartsModule from "@SRC/components/Dashboard/AnimatedCharts.module";
 import PieChartModule from "@SRC/components/Dashboard/PieChart.module";
 import WeeklyStatusReportCardsModule from "@SRC/components/Dashboard/StatusReportCards.module";
 import DashboardOrderList from "@SRC/components/Dashboard/OrderList.module";

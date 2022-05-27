@@ -20,7 +20,7 @@ const ProductListCard = () => {
   return (
     <>
       <Carousel autoplay dotPosition="left" dots={false} effect="fade">
-        {data.map((item) => {
+        {data.map((item, index) => {
           return (
             <>
               <SingleItem key={item.name}>

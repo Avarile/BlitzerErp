@@ -1,23 +1,36 @@
 import Request from "@DATA/api.controller";
 import envSwitch from "@SRC/utils/ENVCONFIG";
-import { refineQueryString, debounce, deduplicateArray, timeStamp } from "@SRC/utils/utilFuncs";
+import { refineQueryString, deduplicateArray, timeStamp } from "@SRC/utils/utilFuncs";
 import qs from "query-string";
 import { store } from "./dataStore/store.redux";
 import { setSelectedItems, setPrice, setOrderCustomer, setOrderShippingInfo } from "@DATA/dataSlices/order.slice";
 import { IUser, IProduct, ILogisticSearchParams, ELogisticStatus, IlogisticInfo, IOrderProduct, IOrderStatusCombined } from "src/utils/interfaces";
 import Notification from "@SRC/utils/commomComponents/Notification";
 import { FormInstance } from "antd";
+// import debounce from "lodash/debounce";
 
 const dispatch = store.dispatch;
 
-const env = envSwitch("dep");
+const debounce = (callback: Function, timer = 1000): Function => {
+  let delay: any;
+  return function (this: any, ...args: any) {
+    if (delay) {
+      clearTimeout(delay);
+    }
+    delay = setTimeout(() => {
+      callback(...args);
+    }, timer);
+  };
+};
+
+const env = envSwitch("dev");
 
 export const generateOrder = async (payload: object) => {
   await Request.post(`${env.dbUri}/orders`, payload, {}, "order");
 };
 
 export const getOrderByParams = (searchParams: Partial<IOrderStatusCombined>, setData: Function, setLoadingStatus: Function, formInstance?: FormInstance) => {
-  debugger;
+  // debugger;
   // init the search, loading starts
   setLoadingStatus(true);
 
@@ -130,8 +143,8 @@ export const getClientsByParams = (
       });
   };
 
-  const debouncedTempFunc = debounce(tempFunc, 3000);
-  debouncedTempFunc();
+  // const debouncedTempFunc = debounce(tempFunc, 3000);
+  tempFunc();
 };
 
 /**
@@ -170,7 +183,7 @@ export const searchProductBySku = async (
   await Request.get(`${env.dbUri}/products?sku=${sku}`)
 
     .then((response: any) => {
-      debugger;
+      // debugger;
       let currentFormValue = formInstance.getFieldValue("products"); // accquire entire list of items
       if (response.length > 0) {
         // console.log(response[0])

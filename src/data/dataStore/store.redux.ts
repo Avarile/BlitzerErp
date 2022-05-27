@@ -1,12 +1,13 @@
 // redux store
 //
-import { configureStore } from "@reduxjs/toolkit"
+import { configureStore } from "@reduxjs/toolkit";
 
 // import all slices
-import authReducer from "../dataSlices/auth.slice"
-import productsReducer from "../dataSlices/products.slice"
-import isloadingReducer from "../dataSlices/isloading.slice"
-import orderReducer from "../dataSlices/order.slice"
+import authReducer from "../dataSlices/auth.slice";
+import productsReducer from "../dataSlices/products.slice";
+import isloadingReducer from "../dataSlices/isloading.slice";
+import orderReducer from "../dataSlices/order.slice";
+import orderListReducer from "../dataSlices/orderlist.slice";
 
 // end of slices
 
@@ -16,5 +17,6 @@ export const store = configureStore({
     products: productsReducer,
     isloading: isloadingReducer,
     order: orderReducer,
+    orderList: orderListReducer,
   },
-})
+});

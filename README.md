@@ -1,6 +1,6 @@
 # Blitzer ERP
 
-##### demo page: https://avarile.github.io/blitzererp ver. 0.1
+##### demo page: http://137.147.94.100:3000/login ver. 0.1
 
 - _username_: Avarile
 - _password_: 000000
@@ -14,6 +14,3 @@
 1. 26/May/2022:
 
 - feat: implemented the partially of the static dashboard, made it functional.
-
-
-- backup: "homepage": "https://Avarile.github.io/BlitzerErp",

@@ -66,6 +66,7 @@ const FabricationIndex = () => {
         />{" "}
         <h3>Order Fabrication Status</h3>
         <Table
+          rowKey={"id"}
           loading={loadingStatus}
           rowClassName={(record, index) => {
             if (index % 2 === 0) {
