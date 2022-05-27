@@ -22,16 +22,14 @@ const ProductListCard = () => {
       <Carousel autoplay dotPosition="left" dots={false} effect="fade">
         {data.map((item, index) => {
           return (
-            <>
-              <SingleItem key={item.name}>
-                <Space direction="vertical">
-                  <h4>{item.name}</h4>
-                  <p>
-                    Currently only <strong>{item.currentInStock}</strong> left!!
-                  </p>
-                </Space>
-              </SingleItem>
-            </>
+            <SingleItem key={item.name}>
+              <Space direction="vertical">
+                <h4>{item.name}</h4>
+                <p>
+                  Currently only <strong>{item.currentInStock}</strong> left!!
+                </p>
+              </Space>
+            </SingleItem>
           );
         })}
       </Carousel>

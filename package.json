@@ -81,7 +81,7 @@
   },
   "homepage": "https://Avarile.github.io/BlitzerErp",
   "scripts": {
-    "start": "concurrently \" node scripts/start.js\" \"json-server --host 192.168.0.121 ./mockDatabase/db.json --port 3001 \"",
+    "start": "concurrently \" node scripts/start.js\" \"json-server --host localhost ./mockDatabase/db.json --port 3001 \"",
     "build": "node scripts/build.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
