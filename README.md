@@ -1,6 +1,6 @@
 # Blitzer ERP
 
-##### demo page: http://137.147.94.100:3000/login ver. 0.1
+##### demo page: http://avarile.com:2095 ver. 0.1
 
 - _username_: Avarile
 - _password_: 000000
