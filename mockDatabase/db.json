@@ -49,8 +49,8 @@
       "installationPrice": 160,
       "desc": "null",
       "spec": "Toolbox size: 1780mm x 1800mm x 850mm\nLight Weight 2.5mm Aluminium Checker Plate \nAluminium Tubes Frame, can take up to 300kg top load when stationary\n4 x Stainless Steel T Handle Locks Secured; Two For Each Lid; keyed alike\nFull Length Concealed Stainless Steel Piano Type Hinge\n2 x Gas Struts for each Door\nReinforced Tubes Roof Bracing Structure\nFloor Included\nWeather Proof Rubber Seal\nFully Tig Welded Seams\nShape Perfectly matches tray headboard / Cab Profile",
-      "currentInStock": 10,
-      "updateLog": "15/May/2022:\nNew batch arrived 10.",
+      "currentInStock": 15,
+      "updateLog": "15/May/2022:\nNew batch arrived 10.\n\n28/May/2022:\nNew batch arrived 5.",
       "id": 2
     },
     {
@@ -221,7 +221,7 @@
       "clientAddress": "15 seabird dr, Point Cook",
       "clientPostcode": "3040",
       "clientMobile": "0481877127",
-      "checked": false,
+      "checked": true,
       "shippingAddress": "15",
       "shippingPostcode": "3030",
       "shippingShippingFee": "15",
