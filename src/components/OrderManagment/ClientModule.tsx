@@ -1,27 +1,28 @@
-import React, { useRef } from "react"
-import "antd/dist/antd.css"
-import { Form, Input, InputNumber, Button, FormInstance, Select } from "antd"
-import Request from "@DATA/api.controller"
-import envSwitch from "@SRC/utils/ENVCONFIG"
-import qs from "query-string"
-import { refineQueryString, debounce } from "@SRC/utils/utilFuncs"
+import React, { useRef } from "react";
+import "antd/dist/antd.css";
+import { Form, Input, InputNumber, Button, FormInstance, Select } from "antd";
+import Request from "@DATA/api.controller";
+import qs from "query-string";
+import { refineQueryString, debounce } from "@SRC/utils/utilFuncs";
+import { createNewClient } from "@SRC/data/api.service";
+import envSwitch from "@SRC/utils/ENVCONFIG";
 
 //type Definition
 
 // init env
-const env = envSwitch("dev")
 
 /* eslint-enable no-template-curly-in-string */
+const env = envSwitch(process.env.NODE_ENV);
 
 const CreateNewQuotation = () => {
-  const onFinish = () => {} // a hook for submit
-  const ref = useRef<FormInstance<any> | null>()
-  const refClient = useRef<any>({})
-  refClient.current.clients = []
+  const onFinish = () => {}; // a hook for submit
+  const ref = useRef<FormInstance<any> | null>();
+  const refClient = useRef<any>({});
+  refClient.current.clients = [];
 
   // setStates init
-  const [loadingStatus, setLoadingStatus] = React.useState(false)
-  const [uiController, setUIController] = React.useState(true)
+  const [loadingStatus, setLoadingStatus] = React.useState(false);
+  const [uiController, setUIController] = React.useState(true);
   // const [clients, setClients] = React.useState<any>([])
 
   /**
@@ -30,11 +31,11 @@ const CreateNewQuotation = () => {
    * @returns customer | null
    */
   const getClientsByParam = (param: { email: string } | { mobile: number }) => {
-    setLoadingStatus(true)
+    setLoadingStatus(true);
     const tempFunc = async () => {
       await Request.get(`${env.dbUri}/clients?${qs.stringify(refineQueryString(param))}`).then((response: any) => {
-        refClient.current.clients = response
-        const { name, id, email, mobile, vip } = response[0]
+        refClient.current.clients = response;
+        const { name, id, email, mobile, vip } = response[0];
         ref.current?.setFieldsValue({
           client: {
             clientName: name,
@@ -42,20 +43,17 @@ const CreateNewQuotation = () => {
             clientMobile: mobile,
             clientStatus: vip ? "returning Client" : "new Client",
           },
-        })
-        setLoadingStatus(false)
-      })
-    }
-    tempFunc()
-  }
+        });
+        setLoadingStatus(false);
+      });
+    };
+    tempFunc();
+  };
 
   /**
    * create New Client
    *
    */
-  const createNewClient = async (payload: Object) => {
-    return await Request.post(`${env.dbUri}/clients`, payload, {}, "Client")
-  }
 
   return (
     <>
@@ -67,7 +65,7 @@ const CreateNewQuotation = () => {
         style={{ flex: 1 }} // flex: 1 的作用
         //ref need to receive a instance of a component using a function to pass it into the current state of the ref.
         ref={(formInstance: FormInstance<any> | null) => {
-          ref.current = formInstance
+          ref.current = formInstance;
         }}>
         <Form.Item label="Search for the Client" style={{ marginBottom: "20px", display: "flex", flexDirection: "row" }}>
           <Form.Item
@@ -81,15 +79,15 @@ const CreateNewQuotation = () => {
             <Input
               placeholder="Please Input the client Email or Mobile Number"
               onChange={() => {
-                let queryParam
-                let currentFormValue = ref.current?.getFieldValue("client")
+                let queryParam;
+                let currentFormValue = ref.current?.getFieldValue("client");
                 if (!isNaN(currentFormValue.clientSearch)) {
                   // if the string can be transform to number and bigger than 0, it must be a number.
-                  queryParam = { mobile: Number(currentFormValue.clientSearch) }
+                  queryParam = { mobile: Number(currentFormValue.clientSearch) };
                 } else {
-                  queryParam = { email: currentFormValue.clientSearch }
+                  queryParam = { email: currentFormValue.clientSearch };
                 }
-                getClientsByParam(queryParam)
+                // getClientsByParam(queryParam)
               }}
             />
           </Form.Item>
@@ -113,18 +111,18 @@ const CreateNewQuotation = () => {
               style={{}}
               onClick={() => {
                 if (uiController === false) {
-                  const currentFormValues = ref.current?.getFieldValue("client")
+                  const currentFormValues = ref.current?.getFieldValue("client");
                   const clientPayload = {
                     name: currentFormValues.clientName,
                     email: currentFormValues.clientEmail,
                     mobile: currentFormValues.clientMobile,
                     vip: currentFormValues.clientStatus === "returning Client" ? true : false,
-                  }
+                  };
                   createNewClient(clientPayload).then(() => {
-                    setUIController(true)
-                  })
+                    setUIController(true);
+                  });
                 }
-                setUIController(false)
+                setUIController(false);
               }}>
               Create New User
             </Button>
@@ -132,6 +130,6 @@ const CreateNewQuotation = () => {
         </Form.Item>
       </Form>
     </>
-  )
-}
-export default CreateNewQuotation
+  );
+};
+export default CreateNewQuotation;

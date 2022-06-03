@@ -164,7 +164,7 @@ export const deduplicateArray = (array: [any]) => {
 };
 
 export const timeStamp = () => {
-  return dayjs().format("YYYY-MM-DD");
+  return Date.parse(dayjs().format("YYYY-MM-DD"));
 };
 
 export const determineItemShouldbeDeduct = (orderFullyPayed: boolean, order: any) => {

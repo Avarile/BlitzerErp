@@ -7,7 +7,7 @@ import { setProducts } from "@DATA/dataSlices/products.slice";
 import { setError, setIsloading, selectIsloading } from "@DATA/dataSlices/isloading.slice";
 
 const { Search } = Input;
-const env = envSwitch("dev");
+const env = envSwitch(process.env.NODE_ENV);
 const SearchBar = ({ placeHolder, style }: { placeHolder: string; style: Object }) => {
   const dispatch = useDispatch();
   const values = useSelector(selectIsloading).isloading.isloading;

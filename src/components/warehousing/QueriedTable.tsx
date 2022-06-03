@@ -64,8 +64,8 @@ const QueriedTable = () => {
 
   // process the values variable make it easier to use
   let data: any[] = [];
-  if (values.products.products[0]) {
-    let temp = values.products.products[0];
+  if (values.products[0]) {
+    let temp = values.products[0];
     data.push({
       key: temp?.id,
       sku: temp?.sku,

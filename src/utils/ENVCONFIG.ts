@@ -7,15 +7,14 @@ const ENVCONFIG = {
   },
 };
 
-interface IEnvConfig {
-  development: Object;
-  deployment: Object;
-}
-const envSwitch = (switchSelector: "dev" | "dep") => {
-  if (switchSelector === "dev") {
+const envSwitch = (switchSelector: "development" | "production" | "test") => {
+  if (switchSelector === "development") {
     return ENVCONFIG.development;
   }
-  if (switchSelector === "dep") {
+  if (switchSelector === "production") {
+    return ENVCONFIG.deployment;
+  }
+  if (switchSelector === "test") {
     return ENVCONFIG.deployment;
   } else {
     throw new Error("Wrong Env selection");

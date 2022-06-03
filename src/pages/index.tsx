@@ -12,4 +12,3 @@ export const PowderCoating = React.lazy(() => import("./PowderCoating"));
 export const Workshop = React.lazy(() => import("./Workshop"));
 export const Customize = React.lazy(() => import("./Customize"));
 export const IncomingContainter = React.lazy(() => import("./ArrivingContainer"));
-export const FallbackLoading = () => import("../components/FallbackLoading");

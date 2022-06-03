@@ -1,15 +1,15 @@
-import React from "react"
-import "antd/dist/antd.css"
-import { Table, Badge, Menu, Dropdown, Space } from "antd"
-import { DownOutlined } from "@ant-design/icons"
-import { stockIndicator, CaculateTypeItems } from "@SRC/utils/utilFuncs"
-import envSwitch from "@SRC/utils/ENVCONFIG"
-import { useNavigate } from "react-router-dom"
-import SearchBar from "@SRC/components/SearchBar"
-import QueriedTable from "@SRC/components/warehousing/QueriedTable"
-import "./pages.css"
-import { productTypes } from "@SRC/utils/productTypes"
-import { getProductBySku } from "@SRC/data/api.service"
+import React from "react";
+import "antd/dist/antd.css";
+import { Table, Badge, Menu, Dropdown, Space } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+import { stockIndicator, CaculateTypeItems } from "@SRC/utils/utilFuncs";
+import envSwitch from "@SRC/utils/ENVCONFIG";
+import { useNavigate } from "react-router-dom";
+import SearchBar from "@SRC/components/SearchBar";
+import QueriedTable from "@SRC/components/warehousing/QueriedTable";
+import "./pages.css";
+import { productTypes } from "@SRC/utils/productTypes";
+import { getProductBySku } from "@SRC/data/api.service";
 
 /**
  *the menu at the end of the action as well as anywhere else.
@@ -20,14 +20,14 @@ const menu = (
     <Menu.Item key="1">Action 1</Menu.Item>
     <Menu.Item key="2">Action 2</Menu.Item>
   </Menu>
-)
+);
 
 function WareHousingMel() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // UI controller
-  const [loadingStatus, setLoadingStatus] = React.useState(false)
-  const [hoverEvent, setHoverEvent] = React.useState(false)
+  const [loadingStatus, setLoadingStatus] = React.useState(false);
+  const [hoverEvent, setHoverEvent] = React.useState(false);
 
   /**
    * Rows been expanded definition
@@ -54,7 +54,7 @@ function WareHousingMel() {
               <Badge status={stockIndicator(a)} />
               {a}
             </span>
-          )
+          );
         },
       },
       { title: "PCPrice", dataIndex: "pcPrice", key: "pcPrice" },
@@ -73,9 +73,9 @@ function WareHousingMel() {
           </Space>
         ),
       },
-    ]
+    ];
 
-    const data: any[] = []
+    const data: any[] = [];
     for (let i = 0; i < values.length; i++) {
       data.push({
         key: values[i].id,
@@ -87,7 +87,7 @@ function WareHousingMel() {
         installPrice: values[i].installationPrice,
         inStock: values[i].currentInStock,
         lastUpdate: values[i].lastUpdate,
-      })
+      });
     }
 
     return (
@@ -100,24 +100,24 @@ function WareHousingMel() {
             onDoubleClick: (event) => {},
             onContextMenu: (event) => {},
             onMouseEnter: (event) => {
-              setHoverEvent(true)
+              setHoverEvent(true);
             }, // 鼠标移入行
             onMouseLeave: (event) => {
-              setHoverEvent(false)
+              setHoverEvent(false);
             },
-          }
+          };
         }}
         columns={columns}
         dataSource={data}
         pagination={false}
         rowClassName={(record, index) => {
           if (index % 2 === 0) {
-            return "warehousing-oddRow"
-          } else return "warehousing-evenRow"
+            return "warehousing-oddRow";
+          } else return "warehousing-evenRow";
         }}
       />
-    )
-  }
+    );
+  };
 
   const columns = [
     { title: "Type", dataIndex: "type", key: "type", render: (a: any) => <h4>{a}</h4> },
@@ -128,18 +128,18 @@ function WareHousingMel() {
       render: () => (
         <a
           onClick={() => {
-            navigate("/mainentrance/warehousing/instock")
-            setLoadingStatus(false)
+            navigate("/mainentrance/warehousing/instock");
+            setLoadingStatus(false);
           }}>
           Edit Stock
         </a>
       ),
     },
-  ]
+  ];
 
   // Data init: Type and items caculation
-  const env = envSwitch("dev")
-  const [products, setProducts] = React.useState<any>([])
+  const env = envSwitch(process.env.NODE_ENV);
+  const [products, setProducts] = React.useState<any>([]);
 
   // const getProduct = async () => {
   //   return await Request.get(`${env.dbUri}/products`)
@@ -152,17 +152,17 @@ function WareHousingMel() {
   // };
 
   React.useEffect(() => {
-    getProductBySku({ sku: "" }, setProducts)
-  }, [])
+    getProductBySku({ sku: "" }, setProducts);
+  }, []);
   // end of DATA init
 
-  const data = []
+  const data = [];
   for (let i = 0; i < productTypes.length; ++i) {
     data.push({
       key: productTypes[i].id,
       type: productTypes[i].name,
       items: CaculateTypeItems(productTypes[i].name, products),
-    })
+    });
   }
 
   return (
@@ -181,15 +181,15 @@ function WareHousingMel() {
           columns={columns} // this is pretty straight forward this is cloumns
           expandable={{
             expandedRowRender: (record) => {
-              let values: any[] = []
+              let values: any[] = [];
               products.map((product: any) => {
                 if (product.type === record.type) {
-                  values.push(product)
-                } else return null
-              })
+                  values.push(product);
+                } else return null;
+              });
               // IMPORTANT!!! the temp will be like this: [null, null, product1, null, product2 ...] and you cannot pass the nulls on to downstires
 
-              return <ExpandedRowRender values={values} />
+              return <ExpandedRowRender values={values} />;
             },
           }} // and this is the expanderable Row
           dataSource={data} // dataSourse
@@ -197,10 +197,10 @@ function WareHousingMel() {
         />
       </>
     </div>
-  )
+  );
 }
 
-export default WareHousingMel
+export default WareHousingMel;
 function getProductsBySku(arg0: { sku: string }) {
-  throw new Error("Function not implemented.")
+  throw new Error("Function not implemented.");
 }

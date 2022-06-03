@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, ReactNode } from "react";
 import { Navigate, useLocation, RouteObject } from "react-router-dom";
 import {
   Login,
@@ -6,7 +6,6 @@ import {
   WareHousingInbound,
   OrderManagment,
   WareHousingMel,
-  FallbackLoading,
   FabricationIndex,
   LogisticIndex,
   DashboardIndex,
@@ -15,6 +14,7 @@ import {
   Customize,
   IncomingContainter,
 } from "@PAGE/index";
+import { FallbackLoading } from "@SRC/components/FallbackLoading";
 
 import Storage from "@DATA/session.controller";
 
@@ -24,7 +24,7 @@ type ChildComponentType = React.LazyExoticComponent<() => JSX.Element>;
 // load the component asyncly and while loading display  a fallback component.
 const LazyLoadingWrapper = (Child: ChildComponentType, Fallback?: FallbackComponentType) => {
   return (
-    <React.Suspense fallback={FallbackLoading || <>...</>}>
+    <React.Suspense fallback={<FallbackLoading /> || <>...</>}>
       <Child />
     </React.Suspense>
   );
@@ -79,11 +79,11 @@ const SuspenseWrapperEX = (Child: any, cutonFallBack?: CutonFallBackT) => {
 export const routes: RouteObject[] = [
   {
     path: "/",
-    element: SuspenseWrapper(Login, FallbackLoading),
+    element: SuspenseWrapper(Login, <FallbackLoading />),
   },
   {
     path: "/login",
-    element: SuspenseWrapper(Login, FallbackLoading),
+    element: SuspenseWrapper(Login, <FallbackLoading />),
   },
   {
     path: "/mainentrance",
@@ -95,56 +95,56 @@ export const routes: RouteObject[] = [
           <MainEntrance />
         </RequireAuth>
       );
-    }, FallbackLoading),
+    }, <FallbackLoading />),
     children: [
       {
         // index: true,
         path: "/mainentrance/dashboardindex",
-        element: SuspenseWrapper(DashboardIndex, FallbackLoading),
+        element: SuspenseWrapper(DashboardIndex, <FallbackLoading />),
       },
       {
         // index: true,
         path: "/mainentrance/ordermanagement",
-        element: SuspenseWrapper(OrderManagment, FallbackLoading),
+        element: SuspenseWrapper(OrderManagment, <FallbackLoading />),
       },
       {
         path: "/mainentrance/warehousing/instock/",
-        element: SuspenseWrapper(WareHousingInbound, FallbackLoading),
+        element: SuspenseWrapper(WareHousingInbound, <FallbackLoading />),
       },
       {
         path: "/mainentrance/warehousing/melstock",
-        element: SuspenseWrapper(WareHousingMel, FallbackLoading),
+        element: SuspenseWrapper(WareHousingMel, <FallbackLoading />),
       },
       {
         path: "/mainentrance/warehousing/bristock",
-        element: SuspenseWrapper(WareHousingMel, FallbackLoading),
+        element: SuspenseWrapper(WareHousingMel, <FallbackLoading />),
       },
       {
         path: "/mainentrance/fabrication/index",
-        element: SuspenseWrapper(FabricationIndex, FallbackLoading),
+        element: SuspenseWrapper(FabricationIndex, <FallbackLoading />),
         children: [
           {
             index: true,
             path: "/mainentrance/fabrication/index/powdercoating",
-            element: SuspenseWrapper(PowderCoating, FallbackLoading),
+            element: SuspenseWrapper(PowderCoating, <FallbackLoading />),
           },
           {
             path: "/mainentrance/fabrication/index/workshop",
-            element: SuspenseWrapper(Workshop, FallbackLoading),
+            element: SuspenseWrapper(Workshop, <FallbackLoading />),
           },
         ],
       },
       {
         path: "/mainentrance/fabrication/customize",
-        element: SuspenseWrapper(Customize, FallbackLoading),
+        element: SuspenseWrapper(Customize, <FallbackLoading />),
       },
       {
         path: "/mainentrance/logistic/logisticindex",
-        element: SuspenseWrapper(LogisticIndex, FallbackLoading),
+        element: SuspenseWrapper(LogisticIndex, <FallbackLoading />),
       },
       {
         path: "/mainentrance/incomingcontainer",
-        element: SuspenseWrapper(IncomingContainter, FallbackLoading),
+        element: SuspenseWrapper(IncomingContainter, <FallbackLoading />),
       },
       {
         path: "*",

@@ -17,13 +17,16 @@ const layout = {
 
 export default function FlatSelectModuleForOrderScreen({ getOrderAndSetdata }: { getOrderAndSetdata: Function }) {
   const [formInstance] = Form.useForm<FormInstance>();
+
+  const getDateRange = (value: any, dateRange: any) => {
+    const startDate = Date.parse(dateRange[0]);
+    const finishDate = Date.parse(dateRange[1]);
+    getOrderAndSetdata({ startDate, finishDate });
+  };
+
   const onFinish = () => {
-    debugger;
     let currentFormValue = formInstance.getFieldValue("searchParams");
     getOrderAndSetdata(currentFormValue);
-  };
-  const getDateRange = (value: any, dateRange: any) => {
-    console.log(`Value: ${value}`, `dateRange: ${dateRange}`);
   };
   const DateRangeComfirm = (value: any) => {
     console.log(value);
