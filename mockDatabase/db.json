@@ -221,7 +221,7 @@
       "clientAddress": "15 seabird dr, Point Cook",
       "clientPostcode": "3040",
       "clientMobile": "0481877127",
-      "checked": true,
+      "checked": false,
       "shippingAddress": "15",
       "shippingPostcode": "3030",
       "shippingShippingFee": "15",
@@ -249,8 +249,97 @@
           "price": 2750,
           "pcPrice": 500,
           "installPrice": 160,
-          "currentInStock": 48
-        },
+          "currentInStock": 49
+        }
+      ],
+      "createdAt": "2022-05-25",
+      "createdBy": "Avarile",
+      "updatedAt": "2022-05-25",
+      "updatedBy": "name",
+      "orderStatus": "fullyPayed",
+      "fabricationStatus": "ready",
+      "logisticStatus": "delivered",
+      "logisticProvider": "Australian Post",
+      "pickupAt": "2022-05-25",
+      "orderPayed": 6835,
+      "paymentDetail": [
+        {
+          "method": "cash",
+          "amount": 5335,
+          "payedAt": "2022-05-27"
+        }
+      ],
+      "balanceDue": 0,
+      "id": 1,
+      "trackingNumber": "123123123x"
+    },
+    {
+      "clientId": 2,
+      "clientName": "Sparutus",
+      "clientEmail": "Sparutus@gmail.com",
+      "clientVip": "Sparutus",
+      "clientAddress": "Adelaide",
+      "clientPostcode": "4001",
+      "clientMobile": "0412345678",
+      "checked": true,
+      "shippingAddress": "Brisbane",
+      "shippingPostcode": "5050",
+      "shippingShippingFee": "50",
+      "priceItemPrice": 2100,
+      "pricepcPrice": 0,
+      "priceinstallPrice": 400,
+      "pricetotalAmount": 2550,
+      "pricedepositPayed": 500,
+      "products": [
+        {
+          "sku": "Bumper-ford2022",
+          "name": "Front Bumper for Ford 2022",
+          "id": 7,
+          "size": "2100",
+          "price": 2100,
+          "pcPrice": 0,
+          "installPrice": 400,
+          "currentInStock": 10
+        }
+      ],
+      "createdAt": "2022-05-25",
+      "createdBy": "Avarile",
+      "updatedAt": "2022-05-25",
+      "updatedBy": "name",
+      "orderStatus": "fullyPayed",
+      "fabricationStatus": "powderCoating",
+      "logisticStatus": "waitingForCarrier",
+      "logisticProvider": null,
+      "pickupAt": null,
+      "orderPayed": 2550,
+      "paymentDetail": [
+        {
+          "method": "cash",
+          "amount": 2050,
+          "payedAt": "2022-05-27"
+        }
+      ],
+      "balanceDue": 0,
+      "id": 2
+    },
+    {
+      "clientId": 5,
+      "clientName": "Emily",
+      "clientEmail": "Emily@gmail.com",
+      "clientVip": "Emily",
+      "clientAddress": "PointCook",
+      "clientPostcode": "3030",
+      "clientMobile": "0412345678",
+      "checked": true,
+      "shippingAddress": "Adelaide",
+      "shippingPostcode": "6000",
+      "shippingShippingFee": "150",
+      "priceItemPrice": 4949,
+      "pricepcPrice": 995,
+      "priceinstallPrice": 1050,
+      "pricetotalAmount": 7144,
+      "pricedepositPayed": 2000,
+      "products": [
         {
           "sku": "TB046F-17148",
           "name": "1400mm Flat Plate Aluminium Canopy With Dog Box Section",
